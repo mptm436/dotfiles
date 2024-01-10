@@ -8,3 +8,5 @@
   excludesfile = ~/.gitignore # valid everywhere
 [init]
 	defaultBranch = main
+[pull]
+	rebase = false

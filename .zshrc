@@ -110,6 +110,7 @@ neofetch
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export EDITOR='nvim'
 # alisa
 alias ll="ls -al"
 alias vim="nvim"
