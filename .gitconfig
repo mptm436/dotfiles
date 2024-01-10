@@ -1,0 +1,10 @@
+[user]
+	email = liqiancn@gmail.com
+	name = mptm436
+
+[core]
+  editor = vim
+  pager = delta
+  excludesfile = ~/.gitignore # valid everywhere
+[init]
+	defaultBranch = main
