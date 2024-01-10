@@ -1,0 +1,12 @@
+[exclude] = []
+
+line-length = 88
+
+[lint]
+select = ["E", "F", "B", "W", "Q"]
+ignore = []
+
+[format]
+# Like Black, use double quotes for strings.
+quote-style = "single"
+
