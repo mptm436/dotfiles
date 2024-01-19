@@ -1,0 +1,30 @@
+{
+	"title": "Single press [Control] => [Cap ; hold [Control] => [Control]",
+	"rules": [
+		{
+			"description": "Single press [Control] => Caps ; hold [Control] => [Control]",
+			"manipulators": [
+				{
+					"from": {
+						"key_code": "left_control",
+						"modifiers": {
+							"optional": ["any"]
+						}
+					},
+					"to": [
+						{
+							"key_code": "left_control"
+						}
+					],
+					"to_if_alone": [
+						{
+							"hold_down_milliseconds": 100,
+							"key_code": "caps_lock"
+						}
+					],
+					"type": "basic"
+				}
+			]
+		}
+	]
+}
