@@ -166,6 +166,8 @@ alias t='tmux'
 alias g="git"
 alias gs="git status"
 alias gl="git log --all --decorate --oneline --graph"
+# snips
+alias snips="ssh snips.sh"
 
 # Applications
 # nvm
@@ -197,3 +199,14 @@ eval "$(pyenv init -)"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 # POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+# GPG
+secret () {
+        output=~/"${1}".$(date +%s).enc
+        gpg --encrypt --armor --output ${output} -r 0x3C3839AF16FBEDB7 "${1}" && echo "${1} -> ${output}"
+}
+
+reveal () {
+        output=$(echo "${1}" | rev | cut -c16- | rev)
+        gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
+}
