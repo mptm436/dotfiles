@@ -51,5 +51,8 @@ blinking = "always"
 [cursor]
 unfocused_hollow = true
 
+[selection]
+save_to_clipboard = true
+
 # [terminal]
 # osc52 = "CopyPaste"
