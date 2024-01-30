@@ -14,8 +14,8 @@ option_as_alt = "OnlyLeft"
 startup_mode = "Windowed"
 dynamic_padding = true
 decorations = "Buttonless"
-opacity = 1
-blur = true
+opacity = 0.5
+blur = false
 
 [window.dimensions]
 columns = 95
@@ -26,7 +26,7 @@ x = 5
 y = 5
 
 [scrolling]
-history = 10_000
+history = 50000
 multiplier = 3
 
 [font]
