@@ -1,0 +1,309 @@
+"" A mod from .ideavimrc - Matt Chapman
+
+
+"" Base Settings
+"" ========================================================
+
+set scrolloff=4
+set sidescrolloff=8
+set relativenumber
+set showmode
+set showcmd
+
+set smartcase
+set incsearch
+set hlsearch
+set ideajoin
+
+set visualbell
+
+" Use system clipboard
+set clipboard+=unnamed
+
+let mapleader = " "
+
+
+"" Plugin Settings
+"" ========================================================
+set surround
+set highlightedyank
+set commentary
+
+" NERDTree
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+
+" Easymotion settings
+set easymotion
+set notimeout
+"" disable AceJump shortcuts mapping
+" let g:EasyMotion_override_acejump = 0
+
+" ideavim sneak
+" Plug 'justinmk/vim-sneak'
+" map f <Plug>Sneak_f
+" map F <Plug>Sneak_F
+" map t <Plug>Sneak_t
+" map T <Plug>Sneak_T
+
+" Multiple-cursors
+Plug 'terryma/vim-multiple-cursors'
+nmap mc <Plug>NextWholeOccurrence
+xmap mc <Plug>NextWholeOccurrence
+xmap mx <Plug>SkipOccurrence
+xmap mp <Plug>RemoveOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+" <A-n> is used to enter accented text e.g. ñ
+nmap <S-C-n> <Plug>AllWholeOccurrences
+xmap <S-C-n> <Plug>AllWholeOccurrences
+nmap g<S-C-n> <Plug>AllOccurrences
+xmap g<S-C-n> <Plug>AllOccurrences
+
+" Which-key settings
+set which-key
+let g:WhichKey_FontSize = 16
+let g:WhichKey_CommandColor = "#41ead4"
+let g:WhichKey_PrefixColor = "#f335b2"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+
+let g:WhichKeyDesc_leader = "<leader> Leader key"
+
+let g:WhichKeyDesc_leader = "<leader>x Open file explorer"
+
+" let g:WhichKeyDesc_easymotion = "<leader>j Jump with Easymotion"
+" let g:WhichKeyDesc_easymotion_prefix = "<leader><leader>"
+
+" let g:WhichKeyDesc_comment = "<leader>c Comment line"
+
+let g:WhichKeyDesc_fold = "<leader>z Folding"
+let g:WhichKeyDesc_fold_all = "<leader>zc Fold all regions"
+let g:WhichKeyDesc_unfold_all = "<leader>zo Unfold all regions"
+
+let g:WhichKeyDesc_window = "<leader>w Window splits"
+let g:WhichKeyDesc_window_split_vertically = "<leader>w\ Split vertically"
+let g:WhichKeyDesc_window_split_horizontally = "<leader>w- Split horizontally"
+let g:WhichKeyDesc_window_split_unsplit = "<leader>wd Unsplit"
+let g:WhichKeyDesc_window_split_move_editor = "<leader>ww Move editor to opposite tab group"
+let g:WhichKeyDesc_window_hide = "<leader>wh Hide IDE active window"
+let g:WhichKeyDesc_window_edit_new = "<leader>we Edit source in new window"
+let g:WhichKeyDesc_window_previous = "<leader>wp Jump to Last window"
+let g:WhichKeyDesc_window_switcher = "<leader>ws Open Switcher"
+
+
+let g:WhichKeyDesc_display = "<leader>d Display options"
+let g:WhichKeyDesc_zen_mode = "<leader>dz Toggle Zen mode"
+let g:WhichKeyDesc_df_mode = "<leader>dd Toggle Distraction-Free mode"
+let g:WhichKeyDesc_fullscreen = "<leader>df Toggle full screen"
+
+let g:WhichKeyDesc_action= "<leader>a Actions"
+let g:WhichKeyDesc_action_context_menu = "<leader>am Open context menu"
+let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
+
+let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
+
+let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
+let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
+let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
+let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
+let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
+
+let g:WhichKeyDesc_buffer = "<leader>b buffer navigation"
+let g:WhichKeyDesc_close_tab = "<leader>bd Close active tab"
+let g:WhichKeyDesc_close_all = "<leader>bc Close all editors"
+let g:WhichKeyDesc_next_tab = "<leader>bn Next Tab"
+let g:WhichKeyDesc_previous_tab = "<leader>bp Previous Tab"
+
+let g:WhichKeyDesc_refactoring = "<leader>r Refactoring menu"
+let g:WhichKeyDesc_refactoring_rename = "<leader>rn Rename element"
+let g:WhichKeyDesc_refactoring_method = "<leader>rm Extract method"
+let g:WhichKeyDesc_refactoring_variable = "<leader>rv Introduce variable"
+let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
+let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
+let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
+
+let g:WhichKeyDesc_goto = "<leader>g Go to X"
+let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to Definition"
+let g:WhichKeyDesc_goto_type_declaration = "<leader>gy Go to Type Definition"
+let g:WhichKeyDesc_goto_implementation = "<leader>gi Go to Implementation"
+let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
+let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
+let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
+let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
+let g:WhichKeyDesc_goto_action = "<leader>ga code Action"
+let g:WhichKeyDesc_goto_related = "<leader>gr goto related"
+let g:WhichKeyDesc_goto_symbol = "<leader>gs goto symbol"
+let g:WhichKeyDesc_goto_class = "<leader>gc goto class"
+let g:WhichKeyDesc_goto_supermethod = "<leader>gm goto supermethod"
+
+let g:WhichKeyDesc_git = "<leader>g Git operations"
+let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
+let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
+let g:WhichKeyDesc_git_branches = "<leader>gb Open Git branches list"
+let g:WhichKeyDesc_git_pull = "<leader>gp Git pull"
+let g:WhichKeyDesc_git_push = "<leader>gP Git push"
+let g:WhichKeyDesc_git_menu = "<leader>gm Open Git menu"
+
+let g:WhichKeyDesc_code = "<leader>c code navigation"
+let g:WhichKeyDesc_code_run = "<leader>cr Run"
+let g:WhichKeyDesc_code_stop = "<leader>cs Stop"
+let g:WhichKeyDesc_code_debug = "<leader>cd Debug"
+let g:WhichKeyDesc_code_breakpoints = "<leader>cb Toggle breakpoints"
+let g:WhichKeyDesc_errors_next = "<leader>cn Go to next error in solution"
+let g:WhichKeyDesc_errors_prev = "<leader>cp Go to previous error in solution"
+let g:WhichKeyDesc_errors_desc = "<leader>ce show error description"
+
+let g:WhichKeyDesc_terminal = "<leader>t Terminal navigation"
+let g:WhichKeyDesc_terminal_toggle = "<leader>tt Toggle terminal window"
+let g:WhichKeyDesc_terminal_newtab = "<leader>tn Open new tab at current dir"
+
+" keys removed from appearance by leave description part empty
+let g:WhichKeyDesc_commentary_prefix = "gc"
+let g:WhichKeyDesc_commentary_action = "gcc"
+
+
+"" Key mappings
+"" ========================================================
+
+inoremap jk <Esc>
+inoremap jj <Esc>
+
+" move line
+nnoremap <A-j> :m +1<CR>
+nnoremap <A-k> :m -2<CR>
+inoremap <A-j> <Esc>:m +1<CR>gi
+inoremap <A-k> <Esc>:m -2<CR>gi
+
+" Tab navigation
+nnoremap <S-l> :tabnext<CR>
+nnoremap <S-h> :tabprev<CR>
+
+" Pane navigation
+sethandler <C-j> a:vim
+sethandler <C-k> a:vim
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+" Jump between methods
+nnoremap [[ <Action>(MethodUp)
+nnoremap ]] <Action>(MethodDown)
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Execute macro saved in 'q' register
+nnoremap qj @q
+
+" Use Q for formatting the current paragraph (or visual selection)
+vmap Q gq
+nmap Q gqap
+
+" Popup navigation
+inoremap <C-j> <Action>(PopupMenu-selectNext)
+inoremap <C-k> <Action>(PopupMenu-selectPrev)
+
+
+"" Leader commands
+"" for IDE actions
+"" ========================================================
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" Comment lines
+" map <leader>c <action>(CommentByLineComment)
+
+" Jump around with easymotion
+map ss <Plug>(easymotion-s)
+map si <Plug>(easymotion-sl)
+map sw <Plug>(easymotion-bd-w)
+map se <Plug>(easymotion-bd-e)
+map sl <Plug>(easymotion-bd-jk)
+map sn <Plug>(easymotion-n)
+
+" Open NERDTree (use q to exit)
+map <leader>e :NERDTreeToggle<CR>
+
+" Folding
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+
+" Window splits
+map <leader>w\ <Action>(SplitVertically)
+map <leader>w- <Action>(SplitHorizontally)
+map <leader>wd <Action>(Unsplit)
+map <leader>ww <Action>(MoveEditorToOppositeTabGroup)
+map <leader>wh <Action>(HideActiveWindow)
+map <leader>we <Action>(EditSourceInNewWindow)
+map <leader>wp <Action>(JumpToLastWindow)
+map <leader>ws <Action>(Switcher)
+
+" Display options
+map <leader>dd <action>(ToggleDistractionFreeMode)
+map <leader>dz <action>(ToggleZenMode)
+map <leader>df <action>(ToggleFullScreen)
+
+" Actions
+map <leader>am <action>(ShowIntentionActions)
+map <leader>as <action>(SearchEverywhere)
+
+" File navigation
+map <leader>ff <action>(GotoFile)
+map <leader>fr <action>(RecentFiles)
+map <leader>fc <action>(FindInPath)
+" map <leader><leader> <Action>(RecentFiles)
+map <leader>fl <action>(RecentLocations)
+map <leader>fs <action>(NewScratchFile)
+
+" Close active tab
+map <leader>bd <action>(CloseContent)
+map <leader>bc <action>(CloseAllEditors)
+map <leader>bn <action>(NextTab)
+map <leader>bp <action>(PreviousTab)
+
+" Refactoring
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gf <Action>(Back)
+nmap <leader>gb <Action>(Forward)
+nmap <leader>ga <Action>(GotoAction)
+nmap <leader>gr <Action>(GotoRelated)
+nmap <leader>gs <Action>(GotoSymbol)
+nmap <leader>gc <Action>(GotoClass)
+nmap <leader>gm <Action>(GotoSuperMethod)
+
+" Git windows
+map <leader>gc <Action>(CheckinProject)
+map <leader>gs <Action>(ActivateVersionControlToolWindow)
+map <leader>gb <Action>(Git.Branches)
+map <leader>gp <Action>(Git.Pull)
+map <leader>gP <Action>(Git.PushUpToCommit)
+map <leader>gm <Action>(Git.Menu)
+
+" Code actions
+map <leader>cr <Action>(Run)
+map <leader>cs <Action>(Stop)
+map <leader>cd <Action>(Debug)
+map <leader>cb <Action>(ToggleLineBreakpoint)
+map <leader>cn <Action>(ReSharperGotoNextErrorInSolution)
+map <leader>cp <Action>(ReSharperGotoPrevErrorInSolution)
+map <leader>ce <Action>(ShowErrorDescription)
+
+" Terminal
+map <leader>tt <Action>(ActivateTerminalToolWindow)
+map <leader>tn <Action>(Terminal.OpenInTerminal)
