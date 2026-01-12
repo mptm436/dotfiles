@@ -28,3 +28,15 @@
 	path = workspace/homelab/agentic-skills/.config/svim
 	url = git@github.com:mptm436/lazyVim.git
 	branch = svim
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@github.com:mptm436/nvim-settings.git
+	branch = main
+[submodule ".config/lazyvim"]
+	path = .config/lazyvim
+	url = git@github.com:mptm436/lazyVim.git
+	branch = main
+[submodule ".config/svim"]
+	path = .config/svim
+	url = git@github.com:mptm436/lazyVim.git
+	branch = svim
