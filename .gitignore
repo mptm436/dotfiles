@@ -1,0 +1,38 @@
+/shims
+/version
+/versions
+/sources
+/cache
+/libexec/*dylib
+/src/Makefile
+/src/*.o
+/bats
+/default-packages
+
+# Sensitive files
+.config/solana/
+.config/opencode/antigravity*.json
+.config/opencode/node_modules/
+.config/opencode/bun.lock
+.config/opencode/package.json
+.config/configstore/
+
+# History files
+.zsh_history
+.bash_history
+.python_history
+.viminfo
+.lesshst
+
+# Cache
+.cache/
+.zcompdump*
+*.zwc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor temps
+*.swp
+*~

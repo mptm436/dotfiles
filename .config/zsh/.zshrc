@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/liqian/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -122,7 +122,24 @@ source $ZSH/oh-my-zsh.sh
 export CLICOLOR=1
 
 # default editor
-export EDITOR=nvim
+alias vim="NVIM_APPNAME=svim nvim"
+alias lvim="NVIM_APPNAME=lazyvim nvim"
+alias cvim="NVIM_APPNAME=codevim nvim"
+export EDITOR=vim
+
+# function nvims() {
+#   items=("default" "lazyvim" "svim")
+#   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+#   if [[ -z $config ]]; then
+#     echo "Nothing selected"
+#     return 0
+#   elif [[ $config == "default" ]]; then
+#     config=""
+#   fi
+#   NVIM_APPNAME=$config nvim $@
+# }
+# 
+# bindkey -s ^a "nvims\n"
 
 # Terraform Config
 # export TF_VAR_vsphere_password=$(cat ~/.local/creds/vsphere.cred.txt)
@@ -137,20 +154,32 @@ export EDITOR=nvim
 #
 # PATH
 export PATH="/opt/homebrew/bin:$PATH"
-export GOPATH=$(go env GOPATH)
-export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH:$HOME/.local/bin"
+export LDFLAGS="-L/opt/homebrew/opt/readline/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/readline/include"
 
-# Alias
-alias lg='lazygit'
-alias cs='cowsay'
+# ---- Zoxide (better cd) ----
+eval "$(zoxide init zsh)"
+
+alias cd="z"
+
+# ---- Alias ----
+alias oo='cd $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/ideaverse'
+alias ollamass='OLLAMA_ORIGINS=moz-extension://*,chrome-extension://*,safari-web-extension://*,app://obsidian.md* ollama serve
+'
 # programs and system
-alias chrome="google-chrome-stable"
-alias code="codium"
 # alias ll="lsd -al --color never"
-alias ll="lsd -al"
+# alias ll="lsd -al"
+alias la='eza -aloF --header --icons --sort=type --time-style "+%Y-%m-%d %H:%M"'
+alias ll='eza -loF --header --icons --sort=type --time-style "+%Y-%m-%d %H:%M"'
+alias ls='eza --color --sort=type'
 alias du1="du -d 1 -h"
 alias kill="killall"
-alias vim="nvim"
+alias chrome="google-chrome-stable"
+alias code="codium"
+alias lg='lazygit'
+alias cs='cowsay'
+alias ts='sudo tailscale'
 # shutdown and reboot
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown -h now'
@@ -175,26 +204,32 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 # rust cargo
 source $HOME/.cargo/env
+
 # PYENV init
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-#
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/liqian/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/liqian/miniforge3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/liqian/miniforge3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/liqian/miniforge3/bin:$PATH"
-#     fi
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+# if which pyenv-virtualenv-init > /dev/null; then
+#     eval "$(pyenv virtualenv-init -)"
 # fi
-# unset __conda_setup
-# # <<< conda initialize <<<
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/mark/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/mark/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/mark/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/mark/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# UV python manager
+eval "$(uv generate-shell-completion zsh)"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -210,3 +245,16 @@ reveal () {
         output=$(echo "${1}" | rev | cut -c16- | rev)
         gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
 }
+
+# SOLANA
+export PATH="/Users/mark/.local/share/solana/install/active_release/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/mark/.lmstudio/bin"
+
+# Gemini-cli API key retreival
+# export GEMINI_API_KEY=$(security find-generic-password -a "${USER}" -s "gemini_api_key" -w)
+export GEMINI_API_KEY=$(security find-generic-password -a "${USER}" -s "gemini_cli" -w)
+
+# Added by Antigravity
+export PATH="/Users/mark/.antigravity/antigravity/bin:$PATH"

@@ -3,6 +3,7 @@
 
 "" Base Settings
 "" ========================================================
+let mapleader = " "
 
 set scrolloff=4
 set sidescrolloff=8
@@ -20,8 +21,6 @@ set visualbell
 " Use system clipboard
 set clipboard+=unnamed
 
-let mapleader = " "
-
 
 "" Plugin Settings
 "" ========================================================
@@ -35,7 +34,7 @@ let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapJumpParent='h'
 
 " Easymotion settings
-set easymotion
+" set easymotion
 set notimeout
 "" disable AceJump shortcuts mapping
 " let g:EasyMotion_override_acejump = 0
@@ -67,11 +66,8 @@ let g:WhichKey_FontSize = 16
 let g:WhichKey_CommandColor = "#41ead4"
 let g:WhichKey_PrefixColor = "#f335b2"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
-
 let g:WhichKeyDesc_leader = "<leader> Leader key"
-
 let g:WhichKeyDesc_leader = "<leader>x Open file explorer"
-
 " let g:WhichKeyDesc_easymotion = "<leader>j Jump with Easymotion"
 " let g:WhichKeyDesc_easymotion_prefix = "<leader><leader>"
 
@@ -123,20 +119,6 @@ let g:WhichKeyDesc_refactoring_field = "<leader>rf Introduce field"
 let g:WhichKeyDesc_refactoring_signature = "<leader>rs Change signature"
 let g:WhichKeyDesc_refactoring_all = "<leader>rr Open refactorings list"
 
-let g:WhichKeyDesc_goto = "<leader>g Go to X"
-let g:WhichKeyDesc_goto_declaration = "<leader>gd Go to Definition"
-let g:WhichKeyDesc_goto_type_declaration = "<leader>gy Go to Type Definition"
-let g:WhichKeyDesc_goto_implementation = "<leader>gi Go to Implementation"
-let g:WhichKeyDesc_goto_usages = "<leader>gu Go to Usages"
-let g:WhichKeyDesc_goto_test = "<leader>gt Go to Test"
-let g:WhichKeyDesc_goto_back = "<leader>gb Go Back"
-let g:WhichKeyDesc_goto_forward = "<leader>gf Go Forward"
-let g:WhichKeyDesc_goto_action = "<leader>ga code Action"
-let g:WhichKeyDesc_goto_related = "<leader>gr goto related"
-let g:WhichKeyDesc_goto_symbol = "<leader>gs goto symbol"
-let g:WhichKeyDesc_goto_class = "<leader>gc goto class"
-let g:WhichKeyDesc_goto_supermethod = "<leader>gm goto supermethod"
-
 let g:WhichKeyDesc_git = "<leader>g Git operations"
 let g:WhichKeyDesc_git_commit = "<leader>gc Open Git commit dialog"
 let g:WhichKeyDesc_git_status = "<leader>gs Open Git status dialog"
@@ -169,6 +151,10 @@ let g:WhichKeyDesc_commentary_action = "gcc"
 inoremap jk <Esc>
 inoremap jj <Esc>
 
+" Clear highlights with the ESC key.
+" nnoremap <silent> <Leader><CR> :noh<CR>
+nnoremap <esc> :noh<return><esc>
+
 " move line
 nnoremap <A-j> :m +1<CR>
 nnoremap <A-k> :m -2<CR>
@@ -198,9 +184,9 @@ vnoremap > >gv
 " Execute macro saved in 'q' register
 nnoremap qj @q
 
-" Use Q for formatting the current paragraph (or visual selection)
-vmap Q gq
-nmap Q gqap
+" " Use Q for formatting the current paragraph (or visual selection)
+" vmap Q gq
+" nmap Q gqap
 
 " Popup navigation
 inoremap <C-j> <Action>(PopupMenu-selectNext)
@@ -208,7 +194,7 @@ inoremap <C-k> <Action>(PopupMenu-selectPrev)
 
 
 "" Leader commands
-"" for IDE actions
+"" fnoreor IDE actions
 "" ========================================================
 
 " Don't use Ex mode, use Q for formatting.
@@ -218,12 +204,16 @@ map Q gq
 " map <leader>c <action>(CommentByLineComment)
 
 " Jump around with easymotion
-map ss <Plug>(easymotion-s)
-map si <Plug>(easymotion-sl)
-map sw <Plug>(easymotion-bd-w)
-map se <Plug>(easymotion-bd-e)
-map sl <Plug>(easymotion-bd-jk)
-map sn <Plug>(easymotion-n)
+" map ss <Plug>(easymotion-s)
+" map si <Plug>(easymotion-sl)
+" map sw <Plug>(easymotion-bd-w)
+" map se <Plug>(easymotion-bd-e)
+" map sl <Plug>(easymotion-bd-jk)
+" map sn <Plug>(easymotion-n)
+
+" Jump around with AceJump
+" https://github.com/acejump/AceJump#acejump
+map s <Action>(AceAction)
 
 " Open NERDTree (use q to exit)
 map <leader>e :NERDTreeToggle<CR>
@@ -274,18 +264,15 @@ map <leader>rs <Action>(ChangeSignature)
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
 
 " Go to code
-nmap <leader>gd <Action>(GotoDeclaration)
-nmap <leader>gy <Action>(GotoTypeDeclaration)
-nmap <leader>gi <Action>(GotoImplementation)
-nmap <leader>gu <Action>(ShowUsages)
-nmap <leader>gt <Action>(GotoTest)
-nmap <leader>gf <Action>(Back)
-nmap <leader>gb <Action>(Forward)
-nmap <leader>ga <Action>(GotoAction)
-nmap <leader>gr <Action>(GotoRelated)
-nmap <leader>gs <Action>(GotoSymbol)
-nmap <leader>gc <Action>(GotoClass)
-nmap <leader>gm <Action>(GotoSuperMethod)
+nmap gd <Action>(GotoDeclaration)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gu <Action>(ShowUsages)
+nmap ga <Action>(GotoAction)
+nmap gr <Action>(GotoRelated)
+nmap gs <Action>(GotoSymbol)
+nmap gC <Action>(GotoClass)
+nmap gM <Action>(GotoSuperMethod)
 
 " Git windows
 map <leader>gc <Action>(CheckinProject)

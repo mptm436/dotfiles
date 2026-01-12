@@ -1,8 +1,6 @@
-import = [
-    "~/.config/alacritty/themes/themes/catppuccin_mocha.toml"
-]
+general.import = ["$HOME/.config/alacritty/themes/themes/catppuccin_mocha.toml"]
 
-live_config_reload = true
+general.live_config_reload = true
 
 [env]
 # wrong TERM setting prevents CopyPaste
@@ -14,7 +12,7 @@ option_as_alt = "OnlyLeft"
 startup_mode = "Windowed"
 dynamic_padding = true
 decorations = "Buttonless"
-opacity = 0.5
+opacity = 0.8
 blur = false
 
 [window.dimensions]
@@ -31,25 +29,17 @@ multiplier = 3
 
 [font]
 size = 14
+normal = { family = "Maple Mono Normal NF CN", style = "Regular" }
+bold = { family = "Maple Mono Normal NF CN", style = "Bold" }
+italic = { family = "Maple Mono Normal NF CN", style = "Italic" }
+bold_italic = { family = "Maple Mono Normal NF CN", style = "Bold Italic" }
 
-  [font.normal]
-  family = "FiraCode Nerd Font Mono"
-  style = "Regular"
-
-  [font.bold]
-  family = "FiraCode Nerd Font Mono"
-  style = "Bold"
-
-  [font.italic]
-  family = "FiraCode Nerd Font Mono"
-  style = "Italic"
+[cursor]
+unfocused_hollow = true
 
 [cursor.style]
 shape = "Beam"
 blinking = "always"
-
-[cursor]
-unfocused_hollow = true
 
 [selection]
 save_to_clipboard = true
