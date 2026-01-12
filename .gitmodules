@@ -16,18 +16,6 @@
 [submodule ".config/tmux/plugins/vim-tmux-navigator"]
 	path = .config/tmux/plugins/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
-[submodule "workspace/homelab/agentic-skills/.config/nvim"]
-	path = workspace/homelab/agentic-skills/.config/nvim
-	url = git@github.com:mptm436/nvim-settings.git
-	branch = main
-[submodule "workspace/homelab/agentic-skills/.config/lazyvim"]
-	path = workspace/homelab/agentic-skills/.config/lazyvim
-	url = git@github.com:mptm436/lazyVim.git
-	branch = main
-[submodule "workspace/homelab/agentic-skills/.config/svim"]
-	path = workspace/homelab/agentic-skills/.config/svim
-	url = git@github.com:mptm436/lazyVim.git
-	branch = svim
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@github.com:mptm436/nvim-settings.git
