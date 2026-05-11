@@ -148,6 +148,7 @@
                     },
                     {
                         "description": "[Right Command] => [Alfred]",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {

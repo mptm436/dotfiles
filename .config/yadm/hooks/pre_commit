@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# pre_yadm_commit — scan staged changes for secrets before yadm commit.
+# Bypass (emergency only): yadm commit --no-verify
+
+set -euo pipefail
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo "⚠️  gitleaks not installed; secret scan skipped (brew install gitleaks)" >&2
+    exit 0
+fi
+
+echo "==> gitleaks: scanning staged yadm changes…"
+if gitleaks protect --staged --redact --no-banner 2>&1; then
+    echo "==> gitleaks: clean ✓"
+    exit 0
+fi
+
+cat >&2 <<EOF
+
+❌ Secrets detected in staged changes. Commit blocked.
+   1. Remove the secret from the file (move to keychain + env var, or gitignore the file)
+   2. Re-stage: yadm add <file>
+   3. Retry: yadm commit
+   Emergency bypass: yadm commit --no-verify
+EOF
+exit 1

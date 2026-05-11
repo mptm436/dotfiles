@@ -158,9 +158,6 @@ export PATH="$PATH:$HOME/.local/bin"
 export LDFLAGS="-L/opt/homebrew/opt/readline/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/readline/include"
 
-# ---- Zoxide (better cd) ----
-eval "$(zoxide init zsh)"
-
 alias cd="z"
 
 # ---- Alias ----
@@ -180,6 +177,7 @@ alias code="codium"
 alias lg='lazygit'
 alias cs='cowsay'
 alias ts='sudo tailscale'
+alias cc='claude'
 # shutdown and reboot
 alias reboot='sudo reboot'
 alias shutdown='sudo shutdown -h now'
@@ -256,5 +254,19 @@ export PATH="$PATH:/Users/mark/.lmstudio/bin"
 # export GEMINI_API_KEY=$(security find-generic-password -a "${USER}" -s "gemini_api_key" -w)
 export GEMINI_API_KEY=$(security find-generic-password -a "${USER}" -s "gemini_cli" -w)
 
+# opencode provider keys (retrieved from macOS Keychain at shell init)
+export KIMI_API_KEY=$(security find-generic-password -a "${USER}" -s "kimi_api_key" -w 2>/dev/null)
+export SANDBOXAI_API_KEY=$(security find-generic-password -a "${USER}" -s "sandboxai_api_key" -w 2>/dev/null)
+
 # Added by Antigravity
 export PATH="/Users/mark/.antigravity/antigravity/bin:$PATH"
+
+# bun completions
+[ -s "/Users/mark/.bun/_bun" ] && source "/Users/mark/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# ---- Zoxide (better cd) ---- must stay at end of file
+eval "$(zoxide init zsh)"
