@@ -36,3 +36,4 @@ Thumbs.db
 # Editor temps
 *.swp
 *~
+.config/vastai/
