@@ -158,8 +158,6 @@ export PATH="$PATH:$HOME/.local/bin"
 export LDFLAGS="-L/opt/homebrew/opt/readline/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/readline/include"
 
-alias cd="z"
-
 # ---- Alias ----
 alias oo='cd $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/ideaverse'
 alias ollamass='OLLAMA_ORIGINS=moz-extension://*,chrome-extension://*,safari-web-extension://*,app://obsidian.md* ollama serve
@@ -269,4 +267,11 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # ---- Zoxide (better cd) ---- must stay at end of file
-eval "$(zoxide init zsh)"
+# Skipped inside Claude Code's Bash subshells: its snapshotted shell state
+# loses `chpwd_functions+=(__zoxide_hook)`, leaving the hook unregistered;
+# `cd` (aliased to z) then trips __zoxide_doctor on every command. Zoxide
+# isn't useful there anyway (no human doing frecency-based jumps).
+if [[ -z "$CLAUDECODE" ]]; then
+    eval "$(zoxide init zsh)"
+    alias cd="z"
+fi
